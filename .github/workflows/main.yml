@@ -27,15 +27,15 @@ jobs:
       - name: Log in to DockerHub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      # Disable buildx and ensure we're using standard build
-      - name: Set up Docker Buildx (Disable buildx)
-        run: |
-          docker buildx stop
-          docker buildx use default
+      # Check Docker version
+      - name: Check Docker version
+        run: docker version
 
-      # Build Docker image (standard build)
+      # Build Docker image with standard Docker build
       - name: Build Docker image (standard)
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/task-1 .
+        run: |
+          docker version
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/task-1 .
 
       # Push Docker image to DockerHub
       - name: Push Docker image
