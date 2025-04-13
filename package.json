@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-demo-app",
+  "name": "Task1",
   "version": "1.0.0",
   "description": "Simple Node.js app for CI/CD demo",
   "main": "app.js",
